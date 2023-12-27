@@ -8,29 +8,8 @@ api_key = os.environ.get('OPENAI_API_KEY')
 
 client = OpenAI(api_key= api_key)
 
-# Create a folder for the game
-parentFolderName = input("Please enter the name of the game : ")
-parentFolderPath = os.path.join(os.getcwd(), parentFolderName)
-
-# Check if the folder alredy exists
-if os.path.exists(parentFolderPath):
-    shutil.rmtree(parentFolderPath)
-else:
-    # Create the game folder if it does not exist
-    os.makedirs(parentFolderPath)
-
-imageFolderPath = os.path.join(parentFolderPath, 'assets')
-
-# Check if the assets folder exists
-if os.path.exists(imageFolderPath):
-    shutil.rmtree(imageFolderPath)
-    pass
-else:
-    # Create the assets folder if it does not exist
-    os.makedirs(imageFolderPath)
-
 # System prompts is used to set the stage or context for the conversation, and it can influence how the model responds to user inputs.
-sys_prompt = "You are my game developer. Help me create good games. We are going to generate 2D games using a python library called PyGame. These will be your task: 1. Identify all the sprites/assets required for the game.  2. Give me a response back in JSON format. The JSON object should have exactly the same amount of keys as the number of sprites identified. The Key-Value pair in the JSON file should be such that the key is the name of the sprite and the value is the description of the sprite/asset such that it would help DALL-E generate images for the required sprites or images. Example of the JSON Object: {\"car\": \"A green colored car\", \"obstacles\": \"Brown boulders\", \"background\": \"A road with yellow colored strips to divide it into two different lanes\"}"
+sys_prompt = "You are my game developer. Help me create good games. We are going to generate 2D games using a python library called PyGame. These will be your task: 1. Identify all the sprites/assets required for the game.  2. Give me a response back in JSON format. The JSON object should have exactly the same amount of keys as the number of sprites identified. The Key-Value pair in the JSON file should be such that the key is the name of the sprite and the value is the description of the sprite/asset such that it would help DALL-E generate images for the required sprites or images. 4. Also generate a good name for the game. Do not use any special charecters in the name of the game. The key for the name of the game in the JSON response should strictly be 'name'. Example of the JSON Object: {\"name\": \"Streer Racer\",\"car\": \"A green colored car\", \"obstacles\": \"Brown boulders\", \"background\": \"A road with yellow colored strips to divide it into two different lanes\"}"
 
 user_prompt1 = "Generate me a racing game where I am a car trying to avoid traffic cones on the road. The car only moves left or right. It automatically keeps moving forward. The Cones can spawn at any place randomly only they should not overlap with the car. "
 
@@ -41,7 +20,7 @@ user_prompt3 = "Generate me a pygame game where I as a spaceship  shoot aliens a
 # Get the description of the sprites to be generated
 spriteResponse = client.chat.completions.create(
     model="gpt-4-1106-preview",
-    # max_tokens= 100,
+    # max_tokens= 100, 
     response_format={ "type": "json_object" },  
     messages=[
         {"role": "system", "content": sys_prompt},
@@ -52,6 +31,34 @@ spriteResponse = client.chat.completions.create(
 # Extract the required content from the response and convert it to JSON Object
 imageDescription = spriteResponse.choices[0].message.content
 imageDescriptionJSON = json.loads(imageDescription)
+
+# Create a folder with the name of the game
+parentFolderName = imageDescriptionJSON.pop('name')
+parentFolderPath = os.path.join(os.getcwd(), parentFolderName)
+
+# Check if the folder alredy exists
+if os.path.exists(parentFolderPath):
+    shutil.rmtree(parentFolderPath)
+else:
+    # Create the game folder if it does not exist
+    os.makedirs(parentFolderPath)
+
+print("Parent folder path: ", parentFolderPath)
+
+# Create Assets folder
+imageFolderPath = os.path.join(parentFolderPath, 'assets')
+
+# Check if the assets folder exists
+if os.path.exists(imageFolderPath):
+    shutil.rmtree(imageFolderPath)
+else:
+    # Create the assets folder if it does not exist
+    os.makedirs(imageFolderPath)
+
+
+# Get the names of the assets
+assetNames = list(imageDescriptionJSON.keys())
+print(assetNames)
 
 # Iterate over the JSON Object to generate Images according to the description
 for key,value in imageDescriptionJSON.items():
