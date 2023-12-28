@@ -15,7 +15,7 @@ You are my game developer. Help me create good games. We are going to generate 2
 2. Generate the game in such a way that the window and Image are appropriately sized. 
 3. Give me the output as a JSON Object. 4. The sprites are stored in a folder called assests. Give the path approppriately. 
 Example of the JSON Object: {\"Code\": import pygame\\nimport random\\n\\n# Initialize PyGame\\npygame.init()\\n\ ... "}"
-These are the names of the image assets: ['spaceship', 'alien', 'asteroid', 'laser_beam', 'background', 'explosion', 'game_over_text', 'score_text']
+These are the names of the image assets: ['playerCar', 'trafficCone', 'road', 'background']
 """
 
 user_prompt1 = "Generate me a racing game where I am a car trying to avoid traffic cones on the road. The car only moves left or right. It automatically keeps moving forward. The Cones can spawn at any place randomly only they should not overlap with the car. "
@@ -56,11 +56,15 @@ formattedCode = formattedCode[start+1:-1-1]
 # Removing the extra backslashes for newline characters
 formattedCode = formattedCode.replace("\\n", "\n")
 
-# Print the formatted code
-# print(formattedCode)
+# Path for the parent directory
+parent_dir = "C:\\Users\\aniru\\Downloads\\New folder\\Cone Dodger Dash"
 
-# Save the code to a file
-with open("game.py", "w") as file:
+# File path for game.py in the parent directory
+file_path = os.path.join(parent_dir, "game.py")
+
+# Save the code to game.py in the parent folder
+with open(file_path, "w") as file:
     file.write(formattedCodeJSON['Code'])
 
-print("Code saved to game.py")
+print(f"Code saved to {file_path}")
+os.chdir(parent_dir)
