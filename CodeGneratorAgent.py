@@ -1,8 +1,6 @@
 import os
 import json
 
-api = os.environ.get('OPENAI_API_KEY')
-
 class CodeGeneratorAgent:
 
     def __init__(self, client, sys_prompt:str) -> None:
