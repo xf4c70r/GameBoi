@@ -13,7 +13,7 @@ class PromptChecker:
         4. Check if it mentions the scenarios for when game ends
         5. If the prompts are not well written, write a good prompt for generating the game which has the following: Objective, scoring condition and conditions for when the game ends. Also check if the controls are mentioned if not then also add that to the query
         6. If the prompt is well formed then return the prompt entered by the user as is
-        7. Check if this line is present in the prompt. If it is not present add these exact same lines without altering them to the end of the query. The line is: "Give me the whole implementation. Also see to it that the assets are sized appropriately"
+        7. Check if this line is present in the prompt. If it is not present add these exact same lines without altering them to the end of the query. The line is: "Give me the whole implementation. Also see to it that the sprites are sized appropriately"
 
         Note: The output should be in JSON format only
 
