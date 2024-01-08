@@ -25,6 +25,7 @@ def main(client, user_prompt):
 
     # Generate Code
     code_generator = CodeGeneratorAgent(client, assetNames)
+    code_generator.run(user_prompt, formattedPath) 
 
     while True:
         returncode, stderr = run_game_script(formattedPath)
@@ -34,6 +35,7 @@ def main(client, user_prompt):
         else:
             print(f"Code running Succesfully") 
             break
+
 if __name__ == "__main__":
 
     api = os.environ.get('OPENAI_API_KEY')
