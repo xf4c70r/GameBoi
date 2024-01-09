@@ -2,7 +2,6 @@ import os
 import shutil
 import subprocess
 from openai import OpenAI
-from sympy import im
 from PromptChecker import PromptChecker
 from SpriteGeneratorAgent import SpriteGeneratorAgent
 from CodeGneratorAgent import CodeGeneratorAgent
