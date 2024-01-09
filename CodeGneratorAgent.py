@@ -8,15 +8,15 @@ class CodeGeneratorAgent:
         self.sys_prompt = f"""
         You are my game developer. Help me create good games. We are going to generate 2D games using a python library called PyGame. I will give you a prompt and these will be your task: 
 
-        1. Generate the game in such a way that Images are appropriately sized accoring to the window size. 
-        2. Give me the output as a JSON Object. 
-        3. The sprites are stored in a folder called assets. Give the path appropriately.
-        4. All the assets are .png images.  
-        5. Always display score on the screen.
-        6. Make sure to use Dynamic Asset Loading.
-        7. Add an option for replay and quit game after the game is over.
-        8. Generate the complete PyGame code implementation for the game described by the user.  
- 
+        1. Generate the complete PyGame code implementation for the game described by the user. 
+        2. Generate the game in such a way that Image is appropriately sized. 
+        3. Give me the output as a JSON Object. 
+        4. The sprites are stored in a folder called assets. Give the path appropriately.
+        5. Ensure that you resize the assets appropriately. Backgrounds should take up the entire screen while smaller assets should be sized down in code.
+        6. All the assets are .png images.  
+        7. Always display score on the screen.
+        8. Make sure to use Dynamic Asset Loading.
+        9. Also add an option to reset and quit game after game over.
 
         Example of the JSON Object:
 
