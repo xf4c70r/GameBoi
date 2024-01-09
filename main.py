@@ -16,15 +16,18 @@ def run_game_script(formattedPath):
 def main(client, user_prompt):
 
     # Check the prompt entered by the user
+    print("\nChecking Prompt.......\n")
     prompt_check = PromptChecker(client)
     user_prompt = prompt_check.run(user_prompt)
 
     # Generate the assets
+    print("\nGenerating Assets.......\n")
     asset_generator = SpriteGeneratorAgent(client)
     parentFolderPath, assetNames = asset_generator.run(user_prompt)
     formattedPath = parentFolderPath.replace("\\", "\\\\")
 
     # Generate Code
+    print("\nGenerating Assets.......\n")
     code_generator = CodeGeneratorAgent(client, assetNames)
     code_generator.run(user_prompt, formattedPath) 
 
