@@ -27,7 +27,7 @@ def main(client, user_prompt):
     formattedPath = parentFolderPath.replace("\\", "\\\\")
 
     # Generate Code
-    print("\nGenerating Assets.......\n")
+    print("\nGenerating Code.......\n")
     code_generator = CodeGeneratorAgent(client, assetNames)
     code_generator.run(user_prompt, formattedPath) 
 
