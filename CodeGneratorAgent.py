@@ -48,4 +48,4 @@ class CodeGeneratorAgent:
         with open(file_path, "w") as file:
             file.write(formattedCodeJSON['Code'])
 
-        print(f"Code saved to {file_path}")
+        print(f"\nCode saved to {file_path}\n")
