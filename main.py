@@ -29,13 +29,13 @@ def main(client, user_prompt):
     # Generate Code
     print("\nGenerating Code.......\n")
     code_generator = CodeGeneratorAgent(client, assetNames)
-    code_generator.run(user_prompt, formattedPath) 
+    formattedCodeJSON = code_generator.run(user_prompt, formattedPath) 
 
     while True:
         returncode, stderr = run_game_script(formattedPath)
         if returncode != 0:
             print(f"An error occurred:\n{stderr}\nRegenerating Code\n") 
-            code_generator.run(user_prompt, formattedPath, stderr) 
+            formattedCodeJSON = code_generator.run(formattedCodeJSON, formattedPath, stderr) 
         else:
             print(f"Code running Succesfully") 
             break

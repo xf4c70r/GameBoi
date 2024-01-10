@@ -49,3 +49,4 @@ class CodeGeneratorAgent:
             file.write(formattedCodeJSON['Code'])
 
         print(f"\nCode saved to {file_path}\n")
+        return formattedCodeJSON
