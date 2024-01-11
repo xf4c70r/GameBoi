@@ -85,4 +85,4 @@ Run the main file
 
 ## Demo
 
-Insert gif or link to demo
+https://github.com/xf4c70r/GameBoi/assets/57385228/975c3747-860d-4541-bc77-795d2f2fa997
