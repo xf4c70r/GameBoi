@@ -18,6 +18,11 @@ System Requirements:
 2. Pygame Library
 3. ChatGPT API Access
 
+## Demo
+
+https://github.com/xf4c70r/GameBoi/assets/57385228/975c3747-860d-4541-bc77-795d2f2fa997
+
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file. You need to add your OpenAI api key. 
@@ -83,6 +88,6 @@ Run the main file
   python3 main.py
 ```
 
-## Demo
+<!-- ## Demo
 
-https://github.com/xf4c70r/GameBoi/assets/57385228/975c3747-860d-4541-bc77-795d2f2fa997
+https://github.com/xf4c70r/GameBoi/assets/57385228/975c3747-860d-4541-bc77-795d2f2fa997 -->
