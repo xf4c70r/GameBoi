@@ -1,6 +1,6 @@
 # GameBoi
 
-Gameboi leverages ChatGPT and PyGame to create customized 2D games based on user input. It is designed to streamline the game development process by automating various stages, from generating game sprits and assets to writing PyGame code. 
+Gameboi leverages GPT, Dall-E and PyGame to create customized 2D games based on user input. It is designed to streamline the game development process by automating various stages, from generating game sprites and assets to writing PyGame code. 
 
 Features:
 
