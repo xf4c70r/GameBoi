@@ -76,10 +76,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  pip install pygame
-```
-```bash
-  pip install openai
+  pip install -r requirements.txt
 ```
 
 Run the main file

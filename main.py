@@ -2,6 +2,7 @@ import os
 import shutil
 import subprocess
 from openai import OpenAI
+from dotenv import load_dotenv
 from PromptChecker import PromptChecker
 from SpriteGeneratorAgent import SpriteGeneratorAgent
 from CodeGneratorAgent import CodeGeneratorAgent
@@ -42,6 +43,7 @@ def main(client, user_prompt):
 
 if __name__ == "__main__":
 
+    load_dotenv()
     api = os.environ.get('OPENAI_API_KEY')
     client = OpenAI(api_key = api)
 

@@ -1,0 +1,4 @@
+opeani==1.8.0
+python-dotenv==1.0.0
+requests==2.31.0
+pygame==2.5.2
