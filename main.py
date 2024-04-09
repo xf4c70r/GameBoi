@@ -36,7 +36,7 @@ def main(client, user_prompt):
         returncode, stderr = run_game_script(formattedPath)
         if returncode != 0:
             print(f"An error occurred:\n{stderr}\nRegenerating Code\n") 
-            formattedCodeJSON = code_generator.run(formattedCodeJSON, formattedPath, stderr) 
+            formattedCodeJSON = code_generator.run(formattedCodeJSON['Code'], formattedPath, stderr) 
         else:
             print(f"Code running Succesfully") 
             break
